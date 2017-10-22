@@ -18,7 +18,6 @@ https://raisethebar00.herokuapp.com/signUp
 Name                 | Type               | Description                                            
 ------------         | -----------        | ----------------------------------------------------   
 emailId              | String             | Email ID of user returned from FB
-userId               | String             | any Dummy String - might get rid off this in future    
 fullName             | String             | Full name of user - might split this field into first name last name in future 
 fbUserId             | String             | FB returened User ID    
 profilePic           | String             | link to the pic returned by FB                     
@@ -30,23 +29,13 @@ Accept : appplication/json
 Content-Type : appplication/json
 
 ```
-Response - 
-```
-Status: 200 OK
-
-[] // might add few things in future
- ``` 
-anything other than 200 ERROR 
-
 Example - 
 ```
 https://raisethebar00.herokuapp.com/signUp
 
 sample request body will look like this.
-
 {
-    "emailId":"alex@ui.edu",
-    "userId":"101540194",
+    "emailId":"alex@iu.edu",
     "fullName":" Alex Sign",
     "fbUserId":"1461302307",
     "profilePic":"https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10308368_10152022362232307_6238714654193480617_n.jpg?oh=51310c2327239d49076d9300c0d47b26&oe=59102909",
@@ -54,6 +43,24 @@ sample request body will look like this.
 }
 
 ```
+
+
+Response - 
+```
+Status: 200 OK with newly register UserModel with all the field. 
+
+for example - a successful resposne would look like this
+
+{
+    "userId": 9,
+    "emailId": "alex@iu.edu",
+    "fbUserId": "1461302307",
+    "profilePic": "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/10308368_10152022362232307_6238714654193480617_n.jpg?oh=51310c2327239d49076d9300c0d47b26&oe=59102909",
+    "fullName": " Alex Sign",
+    "gender": "male"
+}
+ ``` 
+Status: 400 BAD Request with header field called error having error information.
 
 
 ### End point to get the list of bars. 
